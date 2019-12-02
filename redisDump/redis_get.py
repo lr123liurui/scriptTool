@@ -25,7 +25,7 @@ def match_and_format(key):
     except Exception as e:
         return dict
     dict["key"] = key
-    dict["smid"] = smid
+    dict["value"] = smid
     tl = rc.ttl(key)
     dict["ttl"] = tl
     return dict 
@@ -59,11 +59,3 @@ if __name__ == "__main__":
                     file.write(json.dumps(res) + '\n')
             except Exception as e:
                 pass
-    #target = {}    
-
-    #total = 0
-    #fjny_rc = redis.Redis(host="10.66.228.123", port=redis_port, password="crs-170dbkmq:shumeitest2018")
-    #with fjny_rc.pipeline(transaction=False) as p:
-    #  for res in result_it:
-    #   p.set(res["smid"],res["key"],res["ttl"])
-    #   p.execute()

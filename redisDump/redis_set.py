@@ -35,6 +35,6 @@ if __name__ == "__main__":
     rc = redis.Redis(host=redis_host, port=redis_port, password=redis_passwd)
     with rc.pipeline(transaction=False) as p:
         for res in arra:
-            p.set(res["key"], res["smid"], res["ttl"]) 
+            p.set(res["key"], res["value"], res["ttl"]) 
         result = p.execute()
     print(result)
